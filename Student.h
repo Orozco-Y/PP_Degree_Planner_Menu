@@ -1,17 +1,32 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+#include <vector>
 #include <string>
+
+class Course {
+public:
+    Course(const std::string& name, int grade);
+
+    std::string getName() const;
+    int getGrade() const;
+
+private:
+    std::string name;
+    int grade;
+};
 
 class Student {
 public:
-    std::string name;
-    std::string studentId;
-    std::string major;
-    int age;
+    Student(const std::string& name, const std::string& major);
 
-    // Constructor
-    Student(const std::string& name, const std::string& studentId, const std::string& major, int age);
+    void addCourse(const std::string& courseName, int grade);
+    void displayTranscript() const;
+
+private:
+    std::string name;
+    std::string major;
+    std::vector<Course> courses;
 };
 
 #endif // STUDENT_H
