@@ -92,40 +92,35 @@ bool coursesMenu() {
     majorDegreeMenu(majors);
     return true;
 }
-
 bool studentInformationMenu() {
     int choice;
     bool goBackToMainMenu = false;
     string name;
     string major;
-    getline(cin, name);
-    getline(cin, major);
-    Student student(name, major);
+    Student student(name);
 
     while (!goBackToMainMenu) {
         cout << "Student Information Menu" << endl << endl;
         cout << "1. View Student Information" << endl;
-        cout << "2. View Transcript" << endl;
-        cout << "3. Go Back to Main Menu" << endl << endl;
-        cout << "Please enter your choice (1-3): ";
+        cout << "2. Go Back to Main Menu" << endl << endl;
+        cout << "Please enter your choice (1-2): ";
         cin >> choice;
 
         switch (choice) {
             case 1: // View Student Information
                 // Assuming we have some students in a vector
-                cout << "List of Students:" << endl << endl;
+                cout << "Enter First and Last Name:" << endl << endl;
+                getline(cin, name);
 
                 // Replace the following loop with student data
                 for (int i = 1; i <= 3; ++i) {
                     cout << "Name: Student " << i << endl;
-                    cout << "Student ID: 2023" << i << endl;
                     cout << "Major: Computer Science" << endl;
+                    cout << "Student Transcript:" << i << endl;
+
                 }
                 break;
-            case 2:
-                student.displayTranscript();
-                break;
-            case 3: // Go back to the main menu
+            case 2: // Go back to the main menu
                 goBackToMainMenu = true;
                 break;
             default:
